@@ -1,89 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mohid's DropShipping</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="navBar">
-        <div class="logo">MD</div>
-        <div class="menu"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mohid's Dropshipping - Your go-to platform for exciting products.">
+  <title>Mohid's Dropshipping</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header with Glass-like Navigation Bar -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="navLeft">
+        <img src="logo.png" alt="Logo" class="siteLogo" id="themeSwitch">
+        <h1 class="siteTitle">Mohid's Dropshipping</h1>
       </div>
-    </header>
-  </body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mohid's Dropshipping</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Header with Navigation Bar -->
-    <header class="header">
-      <nav class="navbar">
-        <div class="navLeft">
-          <img src="logo.png" alt="Logo" class="siteLogo" />
-          <h1 class="siteTitle">Mohid's Dropshipping</h1>
-        </div>
-        <ul class="navLinks">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#futureProducts">Future Products</a></li>
-          <li><a href="#license">License</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="navRight">
-          <button class="ctaButton">Get Started</button>
-          <button class="ctaButton">Login</button>
-          <div class="themeToggle">
-            <input type="checkbox" id="themeSwitch" class="themeSwitch" />
-            <label for="themeSwitch" class="toggleLabel"></label>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <!-- Hero Section with Carousel -->
-    <section id="home" class="hero">
-      <div class="carouselContainer">
-        <div class="carousel">
-          <img src="../p1.jpg" alt="Product 1" class="carouselItem" />
-          <img src="../p2.jpg" alt="Product 2" class="carouselItem" />
-          <img src="product3.jpg" alt="Product 3" class="carouselItem" />
-        </div>
-        <button
-          onclick="window.open('https://wa.me/1234567890')"
-          class="orderButton"
-        >
-          Order on WhatsApp
-        </button>
-      </div>
-    </section>
-
-    <!-- More Products Coming Section -->
-    <section id="futureProducts" class="moreProducts">
-      <p>
-        More exciting products are on their way! Stay connected with us and be
-        the first to know. Keep contributing to our journey as we grow together.
-      </p>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="footer">
-      <p>Follow us for updates!</p>
-      <ul class="footerLinks">
-        <li><a href="#license">License</a></li>
-        <li><a href="https://youtube.com">YouTube</a></li>
+      <ul class="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#futureProducts">Future Products</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    </footer>
+      <div class="navRight">
+        <div class="hamburger">
+          <i class="bi bi-list"></i> <!-- Bootstrap icon for hamburger menu -->
+        </div>
+        <!-- <div class="themeToggle">
+          <input type="checkbox" id="themeSwitch" class="themeSwitch">
+          <label for="themeSwitch" class="toggleLabel"></label>
+        </div> -->
+      </div>
+    </nav>
+  </header>
 
-    <script src="script.js"></script>
-  </body>
+  <!-- Hero Section with Grid Layout -->
+  <section id="home" class="hero">
+    <div class="miniCarousel">
+      <div class="cube-wrap">
+        <div class="cube" id="cube">
+          <div class="face front"><img src="product1.jpg" alt="Image 1"></div>
+          <div class="face back"><img src="product1.jpg" alt="Image 2"></div>
+          <div class="face left"><img src="product1.jpg" alt="Image 3"></div>
+          <div class="face right"><img src="product1.jpg" alt="Image 4"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div1 productBox" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
+      <h3>Product 1</h3>
+      <p>Short description of Product 1.</p>
+    </div>
+    
+    <div class="div2 productBox" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
+      <h3>Product 2</h3>
+      <p>Short description of Product 2.</p>
+    </div>
+    
+    <div class="div3 productBox" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
+      <h3>Product 3</h3>
+      <p>Short description of Product 3.</p>
+    </div>
+    
+    <div class="div4 productBox" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
+      <h3>Product 4</h3>
+      <p>Short description of Product 4.</p>
+    </div>
+    
+    <div class="detail">
+      <h2>Product Details</h2>
+      <div class="detailContent">
+        <div class="detailColumn">Detail Column 1</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>© 2024s Mohid's Dropshipping. All rights reserved.</p>
+    <section class="socialMedia">
+      <h3>Follow Us</h3>
+      <div class="socialIcons">
+        <a href="https://facebook.com" class="socialIcon"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com" class="socialIcon"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com" class="socialIcon"><i class="fab fa-twitter"></i></a>
+        <a href="https://youtube.com" class="socialIcon"><i class="fab fa-youtube"></i></a>
+ </div>
+    </section>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
