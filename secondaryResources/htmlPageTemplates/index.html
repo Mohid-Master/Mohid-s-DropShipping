@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Place your Order</title>
+    <link rel="stylesheet" href="../../primaryResources/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+                * {
+                    /* border: 1px solid; */
+                    margin: 0;
+                    padding: 0;
+                }
+
+                body {
+                    height: fit-content;
+                    width: 100vw;
+                }
+
+                .mainOrderContainer {
+                  padding: 2vh 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items:center;
+                    background: rgb(242, 242, 242);
+                    /* min-height: 50vh; */
+                    width: 100%;
+                    height: fit-content;
+                    gap: 1rem;
+
+                }
+
+                .mainOrderContainer .orderContainers {
+                    padding: 1rem;
+                    height: fit-content;
+                    width: 55%;
+                    box-shadow: 0px 5px 10px rgb(17, 56, 8);
+                    border-radius: 1rem;
+                    /* background: white; */
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 1.5rem;
+                    gap: .3rem;
+
+
+
+                }
+
+                .mainOrderContainer .orderContainers .inputSpan {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+                .mainOrderContainer .orderContainers .inputSpan label{
+                  width: 30%;
+                  font-size: 1.2rem;
+                }
+                .mainOrderContainer .orderContainers .inputSpan .input {
+                    border-radius: 5px;
+                    width: 70%;
+                    box-shadow: 0px 0px 5px rgba(66, 66, 66, .75);
+                    border-color: transparent;
+                    padding: .2rem 1rem;
+                    text-align: center;
+                    font-size: 1.2rem;
+                }
+
+
+
+                .mainOrderContainer .orderContainers .getDiscountSection{
+                  display: flex;
+                  justify-content: center;
+                  width: 100%;
+                }
+                .mainOrderContainer .orderContainers .getDiscountSection .discountDetailsContainer {
+              display: flex;align-items: center;justify-content: center;flex-direction: column;
+              gap: 0.5rem;text-align: center;
+
+                  width: 40%;
+                }
+                .mainOrderContainer .orderContainers .getDiscountSection .discountPrizeWheelWrapper {
+              display: flex;
+              justify-content: center;
+              position: relative;
+              width: 60%;
+              height: 100%;
+              margin: 5% 0%;
+              transform: scale(.7) rotate(-90deg);
+              /* transform:scale(.7); */
+
+                }
+                .mainOrderContainer .orderContainers .getDiscountSection .discountPrizeWheelWrapper .discountWheel{
+                      margin: -17% -5%;
+              transform:scale(.7);
+                }
+                .mainOrderContainer .orderContainers .getDiscountSection .discountPrizeWheelWrapper .center-circle {
+                  padding: 2.5rem;
+                    border-radius: 50%;
+                    /* background-color: #fff; */
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    backdrop-filter: blur(3px);
+                }
+
+                .mainOrderContainer .orderContainers .getDiscountSection .discountPrizeWheelWrapper .triangle {
+                  padding: 2rem;
+              /* clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%); */
+              clip-path: polygon(0 50%, 100% 0, 75% 50%, 100% 100%);
+              background: rgb(9, 255, 0);
+              position: absolute;
+              top: 50%;
+              left: 100%;
+              transform: translate(-50%,-50%);
+                }
+                .recieptContainer {
+                    /* margin-top: 2rem; */
+                  box-shadow: 0px 5px 10px rgb(17, 56, 8);
+                    border-radius: 1rem;
+                    width: 35%;
+                    gap: 1rem;
+                    height: fit-content;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 1rem;
+                }
+
+                .recieptContainer .orderButton,
+                .recieptContainer .downloadRecieptButton,
+                .getDiscount,button {
+                  width: 80%;
+      min-width: fit-content;
+      text-align: center;
+      height: fit-content;
+      border: 0;
+      font-size: 1.2rem;
+      padding: 0.5rem 0.5rem;
+      font-weight: 900;
+      color: #f2f2f2;
+      border-radius: 0.5rem;
+      background: var(--primary-color);
+      box-shadow: 0px 0px 5px var(--primary-color);
+      transition: all var(--transition-speed);
+      margin: 0.2rem;
+                }
+                .recieptContainer .orderButton:hover,
+                .recieptContainer .downloadRecieptButton:hover,
+                .getDiscount:hover,button:hover {
+                  /* padding-bottom: -1%; */
+                  background: var(--atlantis-color);
+                }
+                @media (max-width:880px) {
+              .mainOrderContainer{
+                  flex-direction: column;
+              }
+              .mainOrderContainer .orderContainers{
+                  width: 95%;
+              }
+              .recieptContainer{
+                width: 95%;
+
+              }
+              .mainOrderContainer .orderContainers .getDiscountSection .discountPrizeWheelWrapper .triangle {
+              left: 110%;
+
+              }
+
+
+          }
+          @media (max-width:680px) {
+
+
+          }
+          #receiptCanvas {
+                border: 1px dotted #4CAF50;
+                /* margin-top: 20px; */
+                width: 80%;
+                display: block;height: 0%;
+                /* margin-left: auto; */
+                /* margin-right: auto; */
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(18, 62, 4, 0.1);
+                transition: all var(--transition-speed);
+            }
+        .addressCollectorContainer{
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          align-items: center; justify-content: center;
+        }
+        .addressCollectorContainer #mapDiv {
+          min-height: 20rem;
+          /* max-width: 20rem; */
+          width: 100%;
+          max-height: 30vh;
+          aspect-ratio: 1/1;
+          border-radius: 1rem;
+          z-index: 5;
+
+        }
+
+        .addressCollectorContainer .addressCollectorControls {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin: 10px;
+          position: relative;
+          width: 100%;
+        }
+
+          .addressCollectorContainer .addressCollectorControls  #address {
+          /* width: 100%;
+        max-width: 400px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 10px; */
+        }
+
+        .addressCollectorContainer .addressCollectorControls #suggestions {
+          position: absolute;
+        background-color: var(--white-color);
+        border: 1px solid #ccc;
+        width: 100%;
+        /* max-width: 400px; */
+        /* max-height: 150px; */
+        overflow-y: scroll;
+        z-index: 1000;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+        display: none;
+        top: 40%;
+        }
+
+        .addressCollectorContainer .addressCollectorControls  #suggestions.loading::before {
+          content: "Loading...";
+          display: block;
+          text-align: center;
+          padding: 10px;
+          color: gray;
+        }
+
+        .addressCollectorContainer .addressCollectorControls  #suggestions li {
+          padding: 10px;
+          cursor: pointer;
+          list-style: none;
+        }
+
+        .addressCollectorContainer .addressCollectorControls  #suggestions li:hover {
+          background-color: #f0f0f0;
+        }
+
+        #output {
+          margin: 10px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          background-color: #f9f9f9;
+          font-family: monospace;
+        }
+        .productDetailContainer{
+            display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: start;
+    padding: 1rem;
+        }
+        .miniProductViewContainer{
+            position: relative;
+    width: 100%;
+    align-self: center;
+    height: 40%;
+    min-height: 10rem;
+    overflow: auto;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.2rem;
+    margin: 0.5rem 0;
+        }
+        .miniProductViewContainer .miniProductView{
+            width: 50%;
+            aspect-ratio: 1/1;
+            position: relative;height: 90% !important;border-radius: 1rem;
+            transition: all var(--transition-speed);
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jsbarcode"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script> -->
+  </head>
+
+  <body>
+    <header class="navigationBar">
+      <div class="navigationLogo">Mohid's DropShipping Store</div>
+      <!-- <nav> -->
+      <ul class="navigationMenu">
+        <li><a class="navigationLinks" href="../../index.html">Home</a></li>
+        <li>
+          <a class="navigationLinks" href="../../index.html#about">About</a>
+        </li>
+        <li>
+          <a class="navigationLinks" href="../../index.html#contact"
+            >Contact Me</a
+          >
+        </li>
+      </ul>
+      <!-- </nav> -->
+    </header>
+    <div class="mainOrderContainer">
+      <div class="orderContainers">
+        <span class="inputSpan"
+          ><label for="name">Name</label>
+          <input type="text" id="name" class="input" required
+        /></span>
+        <span class="inputSpan"
+          ><label for="quantity">Quantity</label>
+          <input
+            type="number"
+            id="quantity"
+            class="input"
+            value="1"
+            min="0"
+            max="20"
+            required
+        /></span>
+        <span class="inputSpan">
+          <label for="size">Size</label>
+          <select id="size" class="input" required>
+            <option value="">Select Size</option>
+            <option value="S">S (27-31 inches)</option>
+            <option value="M">M (31-35 inches)</option>
+            <option value="L">L (35-39 inches)</option>
+            <option value="XL">XL (39-43 inches)</option>
+            <option value="XXL">XXL (43-47 inches)</option>
+          </select></span
+        >
+
+        <div class="addressCollectorContainer">
+          <div id="controls" class="addressCollectorControls">
+            <div class="inputSpan">
+              <label for="address">Delivery Address</label>
+              <input
+                id="address"
+                placeholder="Enter your address"
+                type="text"
+                class="input"
+                oninput="fetchSuggestions()"
+              />
+            </div>
+            <ul id="suggestions"></ul>
+            <div
+              style="display: flex; gap: 10px;"
+              class="addressCollectorControlsButtons"
+            >
+              <button id="locateMeBtn" class="locateMeBtn">Locate Me</button>
+              <button onclick="resetMap()">Reset</button>
+              <button onclick="confirmLocation()">Confirm Location</button>
+            </div>
+          </div>
+          <div id="mapDiv"></div>
+        </div>
+
+        <div id="output">
+          Location Data: <span id="locationData">None</span>
+        </div>
+
+        <div class="getDiscountSection">
+          <div class="discountDetailsContainer">
+            <h1>Try Your Luck to Get Discount</h1>
+            <h2 class="obtainedDiscount"></h2>
+            <p>click on center of wheel</p>
+            <div class="getDiscount" onclick="spin()">Spin The fortune</div>
+          </div>
+          <!-- <div class="discountPrizeWheelWrapper"></div> -->
+          <div class="discountPrizeWheelWrapper">
+            <Canvas
+              class="discountWheel"
+              id="discountWheel"
+              width="500px"
+              height="500px"
+            ></Canvas>
+            <div class="center-circle"></div>
+            <div class="triangle"></div>
+          </div>
+        </div>
+      </div>
+      <div class="recieptContainer">
+        <div class="selectedProductDetailsContainer">
+            <!-- <div id="output2"></div>  -->
+
+          <div class="miniProductViewContainer">
+            <img src="../Logo.png" alt="" class="miniProductView" />
+            <img src="../Logo.png" alt="" class="miniProductView" />
+            <img src="../Logo.png" alt="" class="miniProductView" />
+            <img src="../Logo.png" alt="" class="miniProductView" />
+            <img src="../Logo.png" alt="" class="miniProductView" />
+          </div>
+          <h1 class="productName">Back Support Belt</h1>
+          <h2 class="productPrice">
+            <span class="realPrice">Rs:1500</span> -
+            <span class="obtainedDiscount">??%</span><br />Final Price:
+            <span class="finalPrice">????</span> with Free delivery
+          </h2>
+        </div>
+        <button id="generateReceipt">Generate Receipt</button>
+        <canvas id="receiptCanvas" width="500" height="00"></canvas>
+        <button id="downloadReceipt">Download Receipt</button>
+        <button id="sendOrder">Send Order via WhatsApp</button>
+        <button class="orderButton"></button>
+      </div>
+    </div>
+  </body>
+  <!-- <script>
+// miniProductView=document.querySelectorAll(".miniProductView")
+// miniProductView.forEach((element,i) => {
+//     element.addEventListener('click',document.querySelector(".miniProductViewContainer").appendChild(miniProductView[i]))
+
+// });
+
+  </script> -->
+  <script> 
+    // Function to get URL parameters 
+    function getQueryParam(param) { 
+        const urlParams = new URLSearchParams(window.location.search); 
+        return urlParams.get(param); 
+    } 
+
+    const receivedData = getQueryParam('data'); 
+    document.querySelector('.productName').textContent = receivedData; 
+</script> 
+  <script src="./orderPageScript.js"></script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Back Support Belt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../primaryResources/styles.css" />
+</head>
+
+<body>
+    <header class="navigationBar">
+        <div class="navigationLogo">Mohid's DropShipping Store</div>
+        <!-- <nav> -->
+            <ul class="navigationMenu">
+                <li><a class="navigationLinks" href="../../index.html">Home</a></li>
+                <li><a class="navigationLinks" href="../../index.html#about">About</a></li>
+                <li><a class="navigationLinks" href="../../index.html#contact">Contact Me</a></li>
+            </ul>
+        <!-- </nav> -->
+    </header>
+<div class="productContentContainer">
+    <div class="productMediaContainer">
+        <div class="productMediaContentWrapper">
+            <img src="https://picsum.photos/200" alt="Back Support Belt" class="productMediaContent" />
+            </div>     
+               <div class="productMediaContentsWrapper">
+                <img src="https://picsum.photos/270" alt="Back Support Belt" class="productMediaContent" />
+                <img src="https://picsum.photos/270" alt="Back Support Belt" class="productMediaContent" />
+                <img src="https://picsum.photos/270" alt="Back Support Belt" class="productMediaContent" />
+                <img src="https://picsum.photos/270" alt="Back Support Belt" class="productMediaContent" />
+                <img src="https://picsum.photos/270" alt="Back Support Belt" class="productMediaContent" />
+                <img src="https://picsum.photos/270" alt="Back Support Belt" class="productMediaContent" />
+                <img src="https://picsum.photos/270" alt="Back Support Belt" class="productMediaContent" />
+
+
+                </div>
+    </div>
+    <div class="productDetailContainer">       <div class="productName">Back Support Belt</div>
+    <div class="productPrice">1500</div>
+    <div class="productDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ut omnis, ducimus tempora cupiditate molestiae sit? Molestias dolore sunt voluptate expedita neque natus! Quae tenetur pariatur consequuntur. Odio, earum! Impedit.</div>
+    <button onclick="sendData('backSupportBelt')" class="productOrderButton">Order Now</button>
+</div>
+</div>
+
+<!-- <input type="text" id="dataInput" placeholder="Enter some data"> 
+<button onclick="sendData()">Send Data</button>  -->
+
+<script> 
+    function sendData(data) { 
+        // const data = document.getElementById('dataInput').value; 
+        // Redirect to the second page with data in the URL 
+        window.location.href = `../orderPage/index.html?data=${encodeURIComponent(data)}`; 
+    } 
+    const productMediaContentWrapper = document.querySelector(".productMediaContentWrapper")
+    const productMediaContentsWrapper = document.querySelector(".productMediaContentsWrapper")
+    const productMediaContent = productMediaContentsWrapper.querySelectorAll(".productMediaContent");
+    productMediaContent.forEach(e => {
+    e.addEventListener('click', () => {
+        // Clear the wrapper first if needed
+        productMediaContentWrapper.innerHTML = ''; // Optional: Clear previous content
+
+        // Append the clicked element to the wrapper
+        productMediaContentWrapper.appendChild(e.cloneNode(true)); // Use cloneNode to avoid moving the original element
+    });
+});
+    // productMediaContentWrapper.innerHTML=productMediaContent[0]
+</script> 
+    <footer class="footer">
+        <p>&copy; 2025 By Mohid. All rights reserved.</p>
+    </footer>
+
+    <!-- <script src="../../primaryResources/script.js"></script> -->
+</body>
+
+</html>

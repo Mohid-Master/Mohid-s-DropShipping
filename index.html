@@ -1,95 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mohid's Dropshipping - Your go-to platform for exciting products.">
-  <title>Mohid's Dropshipping</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohid's DropShipping</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./primaryResources/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
 
-  <!-- Header with Glass-like Navigation Bar -->
-  <header class="header">
-    <nav class="navbar">
-      <div class="navLeft">
-        <img src="logo.png" alt="Logo" class="siteLogo" id="themeSwitch">
-        <h1 class="siteTitle">Mohid's Dropshipping</h1>
-      </div>
-      <ul class="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#futureProducts">Future Products</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <body>
+    <header class="navigationBar">
+      <!-- <div class="navigationToggler" onclick="e=>{document.querySelector('.navigationBar').classList.toggle('active')}"></div> -->
+      <div class="navigationLogo">Mohid's DropShipping Store</div>
+      <!-- <nav> -->
+      <ul class="navigationMenu">
+        <li><a class="navigationLinks" href="#home">Home</a></li>
+        <li><a class="navigationLinks" href="#about">About</a></li>
+        <li><a class="navigationLinks" href="#contact">Contact Me</a></li>
       </ul>
-      <div class="navRight">
-        <div class="hamburger">
-          <i class="bi bi-list"></i> <!-- Bootstrap icon for hamburger menu -->
+      <!-- </nav> -->
+    </header>
+    <!-- <button class="button">
+      <span class="label">+ Add to card</span>
+      <span class="gradient-container">
+        <span class="gradient"></span>
+      </span>
+    </button> -->
+    <!-- <div class="heroSection" id="home">
+      <div class="heroWrapper">
+        <div class="hero left">
+          <img src="https://picsum.photos/200" alt="hero1" class="heroBanner" />
+          <a href="#" class="heroAnchor">
+            <h2>Belt</h2>
+          </a>
         </div>
-        <!-- <div class="themeToggle">
-          <input type="checkbox" id="themeSwitch" class="themeSwitch">
-          <label for="themeSwitch" class="toggleLabel"></label>
-        </div> -->
-      </div>
-    </nav>
-  </header>
-
-  <!-- Hero Section with Grid Layout -->
-  <section id="home" class="hero">
-    <div class="miniCarousel">
-      <div class="cube-wrap">
-        <div class="cube" id="cube">
-          <div class="face front"><img src="product1.jpg" alt="Image 1"></div>
-          <div class="face back"><img src="product1.jpg" alt="Image 2"></div>
-          <div class="face left"><img src="product1.jpg" alt="Image 3"></div>
-          <div class="face right"><img src="product1.jpg" alt="Image 4"></div>
+        <div class="hero active">
+          <img src="https://picsum.photos/200" alt="" class="heroBanner" />
+          <a href="" class="heroAnchor">
+            <h2></h2>
+          </a>
+        </div>
+        <div class="hero">
+          <img src="https://picsum.photos/200" alt="" class="heroBanner" />
+          <a href="" class="heroAnchor">
+            <h2></h2>
+          </a>
         </div>
       </div>
-    </div>
+    </div> -->
+    <!-- Slides Section  -->
+    <div class="mainSlidesContainer">
+      <div class="slidesContainer">
+        <div class="slides">
+          <div class="slideContent">
+            <h1>Back Support Belt</h1>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem
+              sit eos porro, ratione ipsa asperiores aperiam aut sunt in nulla
+              quibusdam nisi beatae labore, autem animi id quas alias voluptate?
+            </p>
+            <div class="imgWrapper">
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:1;"
+              />
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:2;"
+              />
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:3;"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="slides">
+          <div class="slideContent">
+            <h1>Back Support Belt</h1>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem
+              sit eos porro, ratione ipsa asperiores aperiam aut sunt in nulla
+              quibusdam nisi beatae labore, autem animi id quas alias voluptate?
+            </p>
+            <div class="imgWrapper">
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:1;"
+              />
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:2;"
+              />
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:3;"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="slides">
+          <div class="slideContent">
+            <h1>Back Support Belt 3</h1>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem
+              sit eos porro, ratione ipsa asperiores aperiam aut sunt in nulla
+              quibusdam nisi beatae labore, autem animi id quas alias voluptate?
 
-    <div class="div1 productBox" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
-      <h3>Product 1</h3>
-      <p>Short description of Product 1.</p>
-    </div>
-    
-    <div class="div2 productBox" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
-      <h3>Product 2</h3>
-      <p>Short description of Product 2.</p>
-    </div>
-    
-    <div class="div3 productBox" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
-      <h3>Product 3</h3>
-      <p>Short description of Product 3.</p>
-    </div>
-    
-    <div class="div4 productBox" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
-      <h3>Product 4</h3>
-      <p>Short description of Product 4.</p>
-    </div>
-    
-    <div class="detail">
-      <h2>Product Details</h2>
-      <div class="detailContent">
-        <div class="detailColumn">Detail Column 1</div>
+            </p>
+            <div class="imgWrapper">
+              <div class="buyNow"><button class="button">
+                <span class="label">+ Add to card</span>
+                <span class="gradient-container">
+                  <span class="gradient"></span>
+                </span>
+              </button></div>
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:1;"
+              />
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:2;"
+              />
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:3;"
+              />
+            </div>
+            <div class="buyNow"><button class="button">
+              <span class="label">Order Now</span>
+              <span class="gradient-container">
+                <span class="gradient"></span>
+              </span>
+            </button></div>
+          </div>
+        </div>
+        <div class="slides">
+          <div class="slideContent">
+            <h1>Back Support Belt</h1>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem
+              sit eos porro, ratione ipsa asperiores aperiam aut sunt in nulla
+              quibusdam nisi beatae labore, autem animi id quas alias voluptate?
+            </p>
+            <div class="imgWrapper">
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:1;"
+              />
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:2;"
+              />
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:3;"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="slides">
+          <div class="slideContent">
+            <h1>Back Support Belt</h1>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem
+              sit eos porro, ratione ipsa asperiores aperiam aut sunt in nulla
+              quibusdam nisi beatae labore, autem animi id quas alias voluptate?
+            </p>
+            <div class="imgWrapper">
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:1;"
+              />
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:2;"
+              />
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:3;"
+              />
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="slides">
+          <div class="slideContent">
+            <h1>Back Support Belt</h1>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem
+              sit eos porro, ratione ipsa asperiores aperiam aut sunt in nulla
+              quibusdam nisi beatae labore, autem animi id quas alias voluptate?
+            </p>
+            <div class="imgWrapper">
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:1;"
+              />
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:2;"
+              />
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:3;"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="slides">
+          <div class="slideContent">
+            <h1>Back Support Belt</h1>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem
+              sit eos porro, ratione ipsa asperiores aperiam aut sunt in nulla
+              quibusdam nisi beatae labore, autem animi id quas alias voluptate?
+            </p>
+            <div class="imgWrapper">
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:1;"
+              />
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:2;"
+              />
+              <img
+                src="https://picsum.photos/202"
+                alt=""
+                class="slideImage"
+                style="--imgNo:3;"
+              />
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
-  </section>
 
-  <!-- Footer Section -->
-  <footer class="footer">
-    <p>© 2024s Mohid's Dropshipping. All rights reserved.</p>
-    <section class="socialMedia">
-      <h3>Follow Us</h3>
-      <div class="socialIcons">
-        <a href="https://facebook.com" class="socialIcon"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://instagram.com" class="socialIcon"><i class="fab fa-instagram"></i></a>
-        <a href="https://twitter.com" class="socialIcon"><i class="fab fa-twitter"></i></a>
-        <a href="https://youtube.com" class="socialIcon"><i class="fab fa-youtube"></i></a>
- </div>
-    </section>
-  </footer>
+    <div class="productsContainer">
+      <a
+        class="productContainer"
+        href="./secondaryResources/products/backSupportBelt.html"
+      >
+        <div class="priceTag"><strike>1700</strike> 1500</div>
 
-  <script src="script.js"></script>
-</body>
+        <img
+          src="https://picsum.photos/200"
+          alt="Back Support Belt"
+          class="productImage"
+        />
+        <span class="productTitle">Back Support Belt</span>
+        <p class="productDescription">
+          A product description is a form of marketing copy used to describe and
+          explain the benefits of your product. In other words, it provides all
+          the information and details of your product on your ecommerce site.
+        </p>
+      </a>
+      <a class="productContainer" href="./secondaryResources/t5.html">
+        <div class="priceTag"><strike>1700</strike> 1500</div>
+        <div class="priceTag"><strike>1700</strike> 1500</div>
+
+        <img
+          src="https://picsum.photos/201"
+          alt="Product 2"
+          class="productImage"
+        />
+        <span class="productTitle">Product 2</span>
+        <p class="productDescription">
+          A product description is a form of marketing copy used to describe and
+          explain the benefits of your product. These product details can be one
+          sentence, a short paragraph or bulleted.
+        </p>
+      </a>
+      <a class="productContainer" href="./secondaryResources/test.html">
+        <div class="priceTag"><strike>1700</strike> 1500</div>
+
+        <img
+          src="https://picsum.photos/202"
+          alt="Product 3"
+          class="productImage"
+        />
+        <span class="productTitle">Product 3</span>
+        <p class="productDescription">
+          A product description is a form of marketing copy used to describe and
+          explain the benefits of your product. They can be serious, funny or
+          quirky.
+        </p>
+      </a>
+    </div>
+    <div class="about" id="about">
+      <h1 class="sectionTitle">About</h1>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae tempore,
+      aliquid repudiandae quas quasi maxime. Asperiores, vitae? Quis delectus
+      voluptas velit itaque, necessitatibus sapiente ut ipsum atque, quos
+      tempora excepturi. Praesentium, incidunt nostrum officiis quisquam modi,
+      perferendis explicabo dolor, in minima blanditiis doloribus voluptas quam!
+      Possimus, fugit. Ex adipisci ut quasi. Libero, odit? Dicta, possimus unde
+      delectus iste cumque praesentium? Et, odit aspernatur? Nobis ipsum
+      reprehenderit harum aliquam itaque maiores architecto ducimus quos nam
+      dignissimos necessitatibus ullam debitis eius atque, ad eligendi quis
+      asperiores illum, eveniet possimus nisi suscipit. Temporibus. Quae
+      similique tempore porro quibusdam tempora quasi consectetur ex non
+      laborum. Veniam, quidem quod minima eaque cum aliquid repellat doloremque
+      atque vero nihil. Laborum, culpa veritatis quis numquam tempora debitis.
+      Sunt velit esse et facere, ipsa est iure aliquid, architecto
+      exercitationem dolorum cumque, nesciunt facilis cum. Libero debitis magni
+      corporis accusantium explicabo dolorem, doloremque porro aliquid impedit
+      at omnis? Nostrum.
+    </div>
+    <div class="conatactMe" id="contact">
+      <h1 class="sectionTitle">Contact Me</h1>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro reiciendis
+      consectetur quo odit totam molestiae perspiciatis delectus itaque vitae
+      corrupti, placeat eaque non quia quaerat consequatur magnam laborum
+      maiores repudiandae! Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. Maxime dolorem alias impedit, laudantium quasi ea provident suscipit
+      nihil. Non veritatis corporis recusandae iste beatae dolorum incidunt
+      fugit iusto eaque quibusdam.
+      <div class="socialMedia">
+        <h3>Follow Us</h3>
+        <div class="socialIcons">
+          <a href="https://facebook.com" class="socialIcon"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com" class="socialIcon"><i class="fab fa-instagram"></i></a>
+          <a href="https://twitter.com" class="socialIcon"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://youtube.com" class="socialIcon"><i class="fab fa-youtube"></i></a>
+        </div>
+        </div>
+   </div>
+    </div>
+    <footer class="footer">
+      <p>&copy; 2025 By Mohid. All rights reserved.</p>
+    </footer>
+
+    <script src="./primaryResources/script.js"></script>
+  </body>
 </html>
