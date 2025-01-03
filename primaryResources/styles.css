@@ -719,6 +719,12 @@ text-align: center;font-size: 1.5rem;
 .conatactMe .socialMedia .socialIcons .socialIcon .fa-facebook-f{
     background-color: #1877F2;
 }
+.conatactMe .socialMedia .socialIcons .socialIcon .fa-github{
+    background-color: #000000;
+}
+.conatactMe .socialMedia .socialIcons .socialIcon .fa-linkedin{
+    background-color: #1877F2;
+}
 .conatactMe .socialMedia .socialIcons .socialIcon .fa-instagram{
     background: linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7);
     /* color: #f2f2f2; */
