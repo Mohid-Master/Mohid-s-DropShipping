@@ -22,44 +22,81 @@
             </ul>
         <!-- </nav> -->
     </header>
-<div class="productContentContainer">
-    <div class="productMediaContainer">
-        <div class="productMediaContentWrapper">
-            <img src="https://picsum.photos/200" alt="Back Support Belt" class="productMediaContent" />
-            </div>     
-               <div class="productMediaContentsWrapper">
-                <img src="https://picsum.photos/270" alt="Back Support Belt" class="productMediaContent" />
-                <img src="https://picsum.photos/270" alt="Back Support Belt" class="productMediaContent" />
-                <img src="https://picsum.photos/270" alt="Back Support Belt" class="productMediaContent" />
-                <img src="https://picsum.photos/270" alt="Back Support Belt" class="productMediaContent" />
-                <img src="https://picsum.photos/270" alt="Back Support Belt" class="productMediaContent" />
-                <img src="https://picsum.photos/270" alt="Back Support Belt" class="productMediaContent" />
-                <img src="https://picsum.photos/270" alt="Back Support Belt" class="productMediaContent" />
-
-
-                </div>
+    <div class="productContentContainer">
+        <div class="productMediaContainer">
+            <div class="productMediaContentWrapper">
+                <img src="" alt="Product Image" class="productMediaContent" id="mainProductImage" />
+            </div>
+            <div class="productMediaContentsWrapper" id="thumbnailContainer">
+                <!-- Thumbnails will be injected here by JavaScript -->
+            </div>
+        </div>
+        <div class="productDetailContainer">
+            <div class="productName" id="productName"></div>
+            <div class="productPrice" id="productPrice"></div>
+            <div class="productDescription" id="productDescription"></div>
+            <button onclick="sendData()" class="productOrderButton">Order Now</button>
+        </div>
     </div>
-    <div class="productDetailContainer">       <div class="productName">Back Support Belt</div>
-    <div class="productPrice">1500</div>
-    <div class="productDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ut omnis, ducimus tempora cupiditate molestiae sit? Molestias dolore sunt voluptate expedita neque natus! Quae tenetur pariatur consequuntur. Odio, earum! Impedit.</div>
-    <button onclick="sendData('backSupportBelt')" class="productOrderButton">Order Now</button>
-</div>
-</div>
+    
+    <script>
+        // Sample product data
+        // const productCount = 9; // Number of products to create
 
-<!-- <input type="text" id="dataInput" placeholder="Enter some data"> 
-<button onclick="sendData()">Send Data</button>  -->
+// for (let i = 1; i <= productCount; i++) {
+//     products.push({
+//         title: `Back Support Belt ${i}`,
+//         description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+//         images: [
+//             `https://picsum.photos/202?random=${i * 3 - 2}`,
+//             `https://picsum.photos/202?random=${i * 3 - 1}`,
+//             `https://picsum.photos/202?random=${i * 3}`
+//         ],
+//         price: 1500 + (i * 100), // Increment price for each product
+//         originalPrice: 1700 + (i * 100), // Increment original price for each product
+//         link: `./secondaryResources/htmlPageTemplates/backSupportBelt.html?selectedProductTitle=${`Back Support Belt ${i}`}`, // Dynamic link for each product
+//         category: "Health"
+//     });
+// }
 
-<script> 
-    function sendData(data) { 
-        // const data = document.getElementById('dataInput').value; 
-        // Redirect to the second page with data in the URL 
-        window.location.href = `./orderPage.html?data=${encodeURIComponent(data)}`; 
-    } 
-    const productMediaContentWrapper = document.querySelector(".productMediaContentWrapper")
-    const productMediaContentsWrapper = document.querySelector(".productMediaContentsWrapper")
-    const productMediaContent = productMediaContentsWrapper.querySelectorAll(".productMediaContent");
-    productMediaContent.forEach(e => {
-    e.addEventListener('click', () => {
+        let products = JSON.parse(localStorage.getItem("productsData"));
+
+
+        // Function to get URL parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+    
+        const productTitle = getQueryParam('selectedProductTitle');
+        const product = products.find(p => p.productName == productTitle);
+    
+        if (product) {
+            document.getElementById('productName').textContent = product.productName;
+            document.getElementById('productPrice').innerHTML = `Price:${product.priceWithoutDiscount} `;
+            document.getElementById('productDescription').textContent = product.productDescriptions;
+            document.getElementById('mainProductImage').src = product.productImageLinks[0];
+    
+            const thumbnailContainer = document.getElementById('thumbnailContainer');
+            product.productImageLinks.forEach((image, index) => {
+                const img = document.createElement('img');
+                img.src = image;
+                img.alt = `${product.productName} Image ${index + 1}`;
+                img.className = 'productMediaContent';
+                img.addEventListener('click', () => {
+                    // document.getElementById('mainProductImage').src = image;
+                });
+                thumbnailContainer.appendChild(img);
+            });
+        } else {
+            document.getElementById('productName').textContent = "Product not found";
+        }
+        if(document.querySelector(".productMediaContentWrapper")){
+        const productMediaContentWrapper = document.querySelector(".productMediaContentWrapper")
+        const productMediaContentsWrapper = document.querySelector(".productMediaContentsWrapper")
+        const productMediaContent = productMediaContentsWrapper.querySelectorAll(".productMediaContent");
+        productMediaContent.forEach(e => {
+        e.addEventListener('click', () => {
         // Clear the wrapper first if needed
         productMediaContentWrapper.innerHTML = ''; // Optional: Clear previous content
 
@@ -67,8 +104,12 @@
         productMediaContentWrapper.appendChild(e.cloneNode(true)); // Use cloneNode to avoid moving the original element
     });
 });
-    // productMediaContentWrapper.innerHTML=productMediaContent[0]
-</script> 
+}
+
+function sendData() {
+            window.location.href = `./orderPage.html?selectedProductTitle=${product.productName}`;
+        }
+    </script>
     <footer class="footer">
         <p>&copy; 2025 By Mohid. All rights reserved.</p>
     </footer>

@@ -23,7 +23,7 @@ calculateDiscount = (discountObtained) => {
     discountObtained + "%";
   document.querySelectorAll(".obtainedDiscount")[1].innerHTML =
     discountObtained + "%";
-  price = 1500;
+  price = selectedProduct.priceWithoutDiscount;
   obtainedDiscountPercentage = discountObtained;
   let discountAmount = (obtainedDiscountPercentage / 100) * price;
   let finalPrice = Math.floor(price - discountAmount);
@@ -316,7 +316,7 @@ async function confirmLocation() {
 
 function zoomOnMarker() {
   const { lat, lng } = marker.getLatLng();
-  map.setView([lat, lng], 14); // Zoom in on the marker
+  map.setView([lat, lng], 10); // Zoom in on the marker
 }
 
 
@@ -328,12 +328,15 @@ backgroundImage.width = 500;
 document
   .getElementById("generateReceipt")
   .addEventListener("click", function () {
+    validateInputs()
     let name = document.getElementById("name").value;
-    if (name == "") name = "Nahi bataoun ga";
+    // if (name == "") name = "Nahi bataoun ga";
     const address = document.getElementById("address").value;
     const quantity = document.getElementById("quantity").value;
-    const size = document.getElementById("size").value;
-    const amount = document.querySelector(".finalPrice").innerText;
+    const amount = document.querySelector(".finalPrice").innerText - 0;
+    const additionalRequestsInputValue = document.querySelector("#additionalRequestsInput").value;
+    const contactNo = document.getElementById('contactNoInput').value;
+    const email = document.getElementById('emailInput').value;
     const currentTime = new Date().toLocaleString();
     const receiptCanvas = document.getElementById("receiptCanvas");
     const ctx = receiptCanvas.getContext("2d");
@@ -367,16 +370,27 @@ document
 
     let left = 50;
     let top = 200;
+    // Center the text horizontally
+    ctx.textAlign = "center";
 
+    // Draw the first text
     ctx.font = "bold 10px serif";
-    ctx.fillStyle = "rgba(30,98,9,6)";
+    ctx.fillStyle = "rgba(30, 98, 9, 0.6)"; // Adjusted alpha for visibility
     ctx.fillText(
-      "Please make sure to keep the receipt save,it will be important for delivery purpose",
-      left + 25,
-      130
+        "Please make sure to keep the receipt safe, it will be useful for delivery",
+        receiptCanvas.width / 2, // Centered horizontally
+        130
     );
-    ctx.font = "bold 20px Arial";
+    ctx.fillText(`Order Time: ${currentTime}`, receiptCanvas.width/2, 510);
 
+    // Draw the second text
+    ctx.font = "bold 8px Arial";
+    ctx.fillStyle = "rgba(30, 98, 9, 1)"; // Full opacity for the next text
+    // ctx.fillText(
+    //     "Thank you for your purchase!",
+    //     receiptCanvas.width / 2, // Centered horizontally
+    //     140
+    // );
     // ctx.fillStyle = "#333";
     // ctx.fillText("Back Support Belt", 150, 150 );
 
@@ -403,22 +417,33 @@ document
     // let address = "1234 Long Address That Might Need To Be Wrapped Because It Is Too Long";
     const maxWidth = receiptCanvas.width - 70; // 10 pixels padding on each side
     const lineHeight = 20; // Adjust line height as needed
+    ctx.textAlign = "left";
 
     ctx.font = "bold 18px lora"; // Set your desired font
     ctx.fillStyle = "black"; // Set your desired text color
-    productName = getQueryParam('data')
+    // productName = s
     // "Back Support Belt";
     ctx.fillText(`Name: ${name}`, left, top - 30);
-    ctx.fillText(`Product Name: ${productName}`, left, top);
+    ctx.fillText(`Product Name: ${selectedProduct.productName}`, left, top);
     // Call the wrapText function
-    wrapText(ctx, `Address: ${address}`, left, top + 150, maxWidth, lineHeight);
+    wrapText(ctx, `Address: ${address}`, left, top + 185, maxWidth, lineHeight);
+    wrapText(ctx, `Special Requests: ${additionalRequestsInputValue}`, left, top + 150, maxWidth, lineHeight);
     // Exp
     // ctx.fillText(`Address: ${address}`, left, 210);
     ctx.fillText(`Quantity: ${quantity}`, left, top + 30);
+    if(document.getElementById("sizeProductInput")){
+      const size = document.getElementById("sizeProductInput").value;
     ctx.fillText(`Size: ${size}`, left, top + 60);
-    ctx.fillText(`Amount: PKR ${amount}`, left, top + 90);
-    ctx.font = "10px";
-    ctx.fillText(`Order Time: ${currentTime}`, 125, 500);
+    }else{
+    ctx.fillText(`Product Code: ${selectedProduct.productId}`, left, top + 60);
+    }
+    (quantity==1) ? ctx.fillText(`Amount: PKR ${amount}`, left, top + 90):ctx.fillText(`Amount: PKR ${((amount-0)*(quantity-0))}`, left, top + 90);
+    ctx.fillText(`Email: ${email}`, left, top + 120);
+    // ctx.fillText(`Quantity: ${quantity}`, left, top + 30);
+    
+    
+    // ctx.font = "10px";
+    
     // Add barcode
     // JsBarcode("#barcode", generateBarcode(), { format: "CODE128" });
     // const barcodeImage = new Image();
@@ -479,36 +504,41 @@ function generateBarcode() {
 //     const barcode = generateBarcode();
 //     ctx.fillText(`Barcode: ${barcode}`, left, 270);
 // });
-
+let downloaded = false;
+function downloadReceiptFunction () {
+  const receiptCanvas = document.getElementById("receiptCanvas");
+  receiptCanvas.toBlob(function (blob) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Mohid'sDropShippingStoreReciept.png";
+    a.click();
+  downloaded=true;
+});
+  }
 document
   .getElementById("downloadReceipt")
-  .addEventListener("click", function () {
-    const receiptCanvas = document.getElementById("receiptCanvas");
-    receiptCanvas.toBlob(function (blob) {
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "image.png";
-      a.click();
-    });
+  .addEventListener("click",downloadReceiptFunction);
     //const link = document.createElement('a');
     // link.download = 'receipt.png';
     // link.href = receiptCanvas.toDataURL('image/png');
     // link.click();
-  });
 
 document.getElementById("sendOrder").addEventListener("click", function () {
   const name = document.getElementById("name").value;
   const address = document.getElementById("address").value;
   const quantity = document.getElementById("quantity").value;
-  const size = document.getElementById("size").value;
-  const amount = document.querySelector(".finalPrice").value;
+  // const size = document.getElementById("size").value;
+  const amount = document.querySelector(".finalPrice").innerText - 0;
+  const contactNo = document.getElementById('contactNoInput').value;
+  const email = document.getElementById('emailInput').value;
   // const orderCode = generateRandomCode();
   const currentTime = new Date().toLocaleString();
-  const orderData = `Name: ${name}, Address: ${address}, Quantity: ${quantity}, Size: ${size}, Amount: $${amount}, Order Time: ${currentTime}`;
+  const orderData = `Name: ${name}, Address: ${address},Email: ${email},Contact No: ${contactNo},Product: ${selectedProduct.productName}, Quantity: ${quantity}, Amount: ${(amount - 0)*(quantity - 0)}, Order Time: ${currentTime}`;
   const encodedData = encodeURIComponent(orderData);
-  const whatsappNumber = "+923183369621"; // Replace with your WhatsApp number
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedData}`;
-
+  const whatsappNumber = "923211217548"; // Replace with your WhatsApp number
+  if (!downloaded)  downloadReceiptFunction()
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedData}%0A${encodeURIComponent(selectedProduct.productImageLinks[0])}`;
+// Message Mohid's DropShipping Store on WhatsApp. https://wa.me/923211217548
   window.open(whatsappLink, "_blank");
 });
