@@ -312,6 +312,7 @@ async function confirmLocation() {
   } else {
     alert("Please select a valid location first.");
   }
+  return  document.getElementById("locationData").textContent;
 }
 
 function zoomOnMarker() {
@@ -527,6 +528,7 @@ document
 document.getElementById("sendOrder").addEventListener("click", function () {
   const name = document.getElementById("name").value;
   const address = document.getElementById("address").value;
+  const DetailedAddress =   document.getElementById("locationData").innerText == "None" ? confirmLocation() :document.getElementById("locationData").innerText  ;
   const quantity = document.getElementById("quantity").value;
   let size = false;
   (selectedProduct.productId == '130125BIO') ? size = document.getElementById("size").value:size= false;
@@ -534,9 +536,10 @@ document.getElementById("sendOrder").addEventListener("click", function () {
   const contactNo = document.getElementById('contactNoInput').value;
   const email = document.getElementById('emailInput').value;
   const additionalRequestsInputValue = document.querySelector("#additionalRequestsInput").value;
+
   // const orderCode = generateRandomCode();
   const currentTime = new Date().toLocaleString();
-  const orderData = `Name: ${name}, Address: ${address},Email: ${email},Contact No: ${contactNo},Product: ${selectedProduct.productName},${size?`Size: ${size}`:selectedProduct.productId}, Quantity: ${quantity}, Amount: ${(amount - 0)*(quantity - 0)},Special Requests: ${additionalRequestsInputValue}, Order Time: ${currentTime}`;
+  const orderData = `Name: ${name}, Address: ${address}, Detailed Address: ${DetailedAddress},Email: ${email},Contact No: ${contactNo},Product: ${selectedProduct.productName},${size?`Size: ${size}`:selectedProduct.productId}, Quantity: ${quantity}, Amount: ${(amount - 0)*(quantity - 0)},Special Requests: ${additionalRequestsInputValue}, Order Time: ${currentTime}`;
   const encodedData = encodeURIComponent(orderData);
   const whatsappNumber = "923211217548"; // Replace with your WhatsApp number
   if (!downloaded)  downloadReceiptFunction()
