@@ -546,7 +546,7 @@ document.getElementById("sendOrder").addEventListener("click", function () {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedData}%0A${encodeURIComponent(selectedProduct.productImageLinks[0])}`;
 // Message Mohid's DropShipping Store on WhatsApp. https://wa.me/923211217548
 setTimeout(()=>{
-  showshowMessage("Opening Whatsapp in 5 seconds", 'error')
+  showMessage("Opening Whatsapp in 5 seconds", 'error')
   window.open(whatsappLink, "_blank");
 },5000)
 });
