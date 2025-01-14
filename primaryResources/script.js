@@ -4,7 +4,7 @@
   //  let  products2 = fetch('https://script.googleusercontent.com/macros/echo?user_content_key=XGdZgX2QYkF0cdZDwtqvuam7IeagRj2143aPI57vBjlIyH6rOJ-gU531NhtpZ4i2EQWXNURgPorbBsMsr2CjmnCDtO4eNHFmm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnDrZ8O7MAg-5KbnzcrOJWT8XJ7TnGHvTgoAfVfC6y-AfVzFrH7ErXKuZ9JofhzlrSzEt4TBQf1pnlsROCSsKQPk9jVrEwJWo5dz9Jw9Md8uu&lib=MJdJZ8BVRodC6LGgDL8myo2G2k8q_2nFP').then(res=> {return res.json()}).then(res=>console.log(res))
   function productPageLinkGenerator(productName) {
     let productLink = `./secondaryResources/htmlPageTemplates/backSupportBelt.html?selectedProductTitle=${`${productName}`}`
-    console.log(productLink,productName)
+    // console.log(productLink,productName)
     return productLink; // Dynamic link for each product
 }
     // Create loader element
@@ -116,7 +116,8 @@ function showMessage(message, type) {
       const slidesContainer = document.querySelector('.slidesContainer');
       slidesContainer.innerHTML = ''; // Clear existing content
 
-      products.forEach(product => {
+      products.forEach((product,index) => {
+
         const slide = `
                     <div class="slides">
                         <div class="slideContent">
@@ -138,7 +139,7 @@ function showMessage(message, type) {
                         </div>
                     </div>
                 `;
-        slidesContainer.innerHTML += slide; // Append the new slide
+        if (index<8) slidesContainer.innerHTML += slide; // Append the new slide
       });
     }
     // Function to create product links dynamically
@@ -169,7 +170,7 @@ function showMessage(message, type) {
     // Fetch products
     function fetchProducts() {
         if (!localStorage.getItem('productsData')) {
-    fetch('https://script.google.com/macros/s/AKfycbyVmhEeVEemjYlflXvRndoz_eGJ2eE0t-yCD9GYTbBpp65B-mIjllqhhNacO7rC-0CW1Q/exec')
+        fetch('https://script.google.com/macros/s/AKfycbyVmhEeVEemjYlflXvRndoz_eGJ2eE0t-yCD9GYTbBpp65B-mIjllqhhNacO7rC-0CW1Q/exec')
         .then(res => {
             if (!res.ok) {
                 throw new Error('Network response was not ok');
@@ -177,7 +178,7 @@ function showMessage(message, type) {
             return res.json();
         })
         .then(data => {
-            console.log(data);
+            // console.info(data);
             // showMessage('Products loaded successfully!', 'success');
             header=data.data.shift();
             products=data.data;
@@ -187,7 +188,7 @@ function showMessage(message, type) {
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
-            for (let i = 1; i <= productCount; i++) {
+            // for (let i = 1; i <= productCount; i++) {
     //   products.push({
     //     productName: `Back Support Belt ${i}`,
     //     productDescriptions: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
@@ -205,8 +206,9 @@ function showMessage(message, type) {
     //     productBrandName:"ARTees",
     //     productBrandImage:"./secondaryResources/Logo.png"
     //   });
-    }
-    products = [{availability: "InStock",
+    // }
+    products = [
+        {availability: "InStock",
         displayProduct: true,
         priceWithDiscount: 1350,
         priceWithoutDiscount: 1500,
@@ -311,7 +313,6 @@ realPrice: 2500
     }else{
         products = JSON.parse(localStorage.getItem('productsData'))
         products = products.filter(product => product.displayProduct)
-
         createSlides()
         updateOnclick()
         createProducts()

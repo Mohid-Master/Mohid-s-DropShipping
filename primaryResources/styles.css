@@ -597,7 +597,9 @@ body {
     transform: translate(-50%, -50%) scale(0);
     aspect-ratio: 1/1;
     height: 12.5rem;width: 12.5rem;
-    object-fit: cover;
+    object-fit: cover; 
+    animation: inToView .3s linear;
+    transition-delay: 100ms;
 }
 
 .mainSlidesContainer .slidesContainer .slides:nth-child(3) .slideContent .imgWrapper img:nth-child(1) {
@@ -668,6 +670,8 @@ body {
 .mainSlidesContainer .slidesContainer .slides:nth-child(3) .slideContent p {
     height: fit-content;
     opacity: 1;
+    text-align: center;
+    width: 100%;
     top: 25%;
 }
 
@@ -679,7 +683,7 @@ body {
     transform: translate(-50%, -50%);
     left: 50%;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 
@@ -741,7 +745,6 @@ body {
     /* justify-items: flex-start; */
     font: 1.9rem;
     font-weight: 700;
-
     color: var(--light-color);
     padding: 1rem 0rem;
     flex-direction: column;
@@ -1061,8 +1064,8 @@ border-radius: 1rem;
 /* background: rgba(255, 255, 255, 0.11); */
 /* border-radius: 16px; */
 box-shadow: 0 4px 5px rgba(190, 190, 190, 0.555);
-backdrop-filter: blur(3.4px);
--webkit-backdrop-filter: blur(3.4px);
+backdrop-filter: blur(4.4px);
+-webkit-backdrop-filter: blur(4.4px);
 /* border: 1px solid rgba(255, 255, 255, 0.6); */
 overflow: hidden;
 
@@ -1140,14 +1143,14 @@ gap: 1rem;
 }
 
 .productContentContainer .productDetailContainer .productName { 
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     text-align: left;
     font-weight: 700;
 
 }
 
 .productContentContainer .productDetailContainer .productPrice { 
-    font-size: 1rem;
+    font-size: 1.6rem;
     text-align: right;
     color: var(--highlight-color);
 }
@@ -1156,6 +1159,7 @@ gap: 1rem;
 column-count: 1;
 text-align: left;
 grid-area: 2 / 1 / span 1 / span 2;
+font-size: 1.1rem;
 }
 
 .productContentContainer .productDetailContainer .productOrderButton { 

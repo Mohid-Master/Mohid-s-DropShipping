@@ -133,8 +133,8 @@ function spin() {
   draw();
   // maxRotation = (360 * 6) - itemDegs['cat'].endDeg + 10
   itemDegs = {};
-  console.log("max", maxRotation);
-  console.log(itemDegs);
+  // console.log("max", maxRotation);
+  // console.log(itemDegs);
   pause = false;
   window.requestAnimationFrame(animate);
 }
@@ -528,13 +528,15 @@ document.getElementById("sendOrder").addEventListener("click", function () {
   const name = document.getElementById("name").value;
   const address = document.getElementById("address").value;
   const quantity = document.getElementById("quantity").value;
-  // const size = document.getElementById("size").value;
+  let size = false
+  (selectedProduct.productId == '130125BIO') ? size = document.getElementById("size").value:"";
   const amount = document.querySelector(".finalPrice").innerText - 0;
   const contactNo = document.getElementById('contactNoInput').value;
   const email = document.getElementById('emailInput').value;
+  const additionalRequestsInputValue = document.querySelector("#additionalRequestsInput").value;
   // const orderCode = generateRandomCode();
   const currentTime = new Date().toLocaleString();
-  const orderData = `Name: ${name}, Address: ${address},Email: ${email},Contact No: ${contactNo},Product: ${selectedProduct.productName}, Quantity: ${quantity}, Amount: ${(amount - 0)*(quantity - 0)}, Order Time: ${currentTime}`;
+  const orderData = `Name: ${name}, Address: ${address},Email: ${email},Contact No: ${contactNo},Product: ${selectedProduct.productName},${size?`Size: ${size}`:selectedProduct.productId}, Quantity: ${quantity}, Amount: ${(amount - 0)*(quantity - 0)},Special Requests: ${additionalRequestsInputValue}, Order Time: ${currentTime}`;
   const encodedData = encodeURIComponent(orderData);
   const whatsappNumber = "923211217548"; // Replace with your WhatsApp number
   if (!downloaded)  downloadReceiptFunction()
