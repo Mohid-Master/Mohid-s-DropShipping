@@ -188,6 +188,7 @@ function locateUser() {
         //     .openPopup();
         zoomOnMarker();
         document.getElementById("locateMeBtn").innerText = "Locate Me";
+        confirmLocation();
       },
       (error) => {
         switch (error.code) {
@@ -528,7 +529,7 @@ document
 document.getElementById("sendOrder").addEventListener("click", function () {
   const name = document.getElementById("name").value;
   const address = document.getElementById("address").value;
-  const DetailedAddress =   document.getElementById("locationData").innerText == "None" ? confirmLocation() : document.getElementById("locationData").innerText  ;
+  const DetailedAddress = document.getElementById("locationData").innerText  ;
   const quantity = document.getElementById("quantity").value;
   let size = false;
   (selectedProduct.productId == '130125BIO') ? size = document.getElementById("size").value:size= false;
@@ -545,8 +546,8 @@ document.getElementById("sendOrder").addEventListener("click", function () {
   if (!downloaded)  downloadReceiptFunction()
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedData}%0A${encodeURIComponent(selectedProduct.productImageLinks[0])}`;
 // Message Mohid's DropShipping Store on WhatsApp. https://wa.me/923211217548
-setTimeout(()=>{
-  showMessage("Opening Whatsapp in 5 seconds", 'error')
+// setTimeout(()=>{
+  // showMessage("Opening Whatsapp in 5 seconds", 'error')
   window.open(whatsappLink, "_blank");
-},5000)
+// },5000)
 });
