@@ -433,8 +433,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.4s all;
-    transition-delay: .2;
+    transition: 0.3s all;
+    /* transition-delay: .2; */
     overflow: hidden;
     font-size: 1rem;
 }
@@ -598,8 +598,8 @@ body {
     aspect-ratio: 1/1;
     height: 12.5rem;width: 12.5rem;
     object-fit: cover; 
-    animation: inToView .3s linear;
-    transition-delay: 100ms;
+    animation: inToView .2s linear;
+    /* transition-delay: 100ms; */
 }
 
 .mainSlidesContainer .slidesContainer .slides:nth-child(3) .slideContent .imgWrapper img:nth-child(1) {
