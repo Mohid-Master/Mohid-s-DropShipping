@@ -528,8 +528,8 @@ document.getElementById("sendOrder").addEventListener("click", function () {
   const name = document.getElementById("name").value;
   const address = document.getElementById("address").value;
   const quantity = document.getElementById("quantity").value;
-  let size = false
-  (selectedProduct.productId == '130125BIO') ? size = document.getElementById("size").value:"";
+  let size = False;
+  (selectedProduct.productId == '130125BIO') ? size = document.getElementById("size").value:size=False;
   const amount = document.querySelector(".finalPrice").innerText - 0;
   const contactNo = document.getElementById('contactNoInput').value;
   const email = document.getElementById('emailInput').value;
