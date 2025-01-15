@@ -325,6 +325,8 @@ function zoomOnMarker() {
 
 
 // -----> Reciept Funtionality  <-----
+let progress = 0;
+
 backgroundImage.height = 600;
 backgroundImage.width = 500;
 document
@@ -457,7 +459,6 @@ document
     //     if (!error) ctx.drawImage(qrCanvas, 200, 200, 150, 150);
     // });
     if (receiptCanvas.height == 0) {
-      let progress = 0;
       let id = setInterval(frame, 10);
       function frame() {
         if (progress == 100) {
@@ -508,6 +509,7 @@ function generateBarcode() {
 // });
 let downloaded = false;
 function downloadReceiptFunction () {
+  if (progress != 100) document.getElementById("generateReceipt").click() 
   const receiptCanvas = document.getElementById("receiptCanvas");
   receiptCanvas.toBlob(function (blob) {
     const url = URL.createObjectURL(blob);
