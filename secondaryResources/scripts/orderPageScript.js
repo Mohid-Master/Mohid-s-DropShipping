@@ -532,7 +532,7 @@ document.getElementById("sendOrder").addEventListener("click", function () {
   const DetailedAddress = document.getElementById("locationData").innerText  ;
   const quantity = document.getElementById("quantity").value;
   let size = false;
-  (selectedProduct.productId == '130125BIO') ? size = document.getElementById("size").value:size= false;
+  (selectedProduct.productId == '130125BIO') ? size = document.getElementById("sizeProductInput").value:size = false;
   const amount = document.querySelector(".finalPrice").innerText - 0;
   const contactNo = document.getElementById('contactNoInput').value;
   const email = document.getElementById('emailInput').value;
