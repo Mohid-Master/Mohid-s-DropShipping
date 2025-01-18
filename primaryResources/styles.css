@@ -793,7 +793,7 @@ background: var(--primary-color);
 .productsContainer .productTitle {
     position: relative;
     display: block;
-    font-size: 2rem;
+    font-size: 20px;
     font-weight: 700;
     margin: 0.5rem 0;
     color: var(--primary-color);
