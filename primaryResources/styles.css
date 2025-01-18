@@ -342,7 +342,7 @@ body {
     /* transition: background-color var(--transition-speed), transform var(--transition-speed); */
     background: var(--light-color);
     color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    /* border: 1px solid var(--primary-color); */
     border-radius: .3rem;
     /* color: var(--light-color); */
     font-weight: 700;
@@ -355,7 +355,7 @@ body {
 .navigationBar .navigationLinks:hover {
     background-color: var(--primary-color);
     color:var(--light-color);
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
 }
 .navigationBar .navigationLinks {
 }
@@ -693,7 +693,7 @@ body {
 /* ----> Products Container Section <---- */
 .productsContainer {
 display: grid;
-grid-template-columns: repeat(1fr,4);
+grid-template-columns: repeat(4,1fr);
 gap: 1rem;
 justify-items: center;
 align-items: center;
@@ -899,7 +899,7 @@ background: var(--primary-color);
         height: 75vh;
     }
     .productsContainer {
-grid-template-columns: repeat(1fr,2);
+grid-template-columns: repeat(2,1fr);
 
         /* width: calc(45% - 1rem); */
          /* Adjust for smaller screens */
