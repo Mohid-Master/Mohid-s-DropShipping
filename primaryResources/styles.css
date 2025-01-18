@@ -298,7 +298,8 @@ body {
     z-index: 1000;
     display: flex;
     width: 100%;
-    background: var(--primary-color);
+    background: rgba(7, 67, 7, 0.504);
+    backdrop-filter: blur(5px);
     padding: 0rem 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: sticky;
@@ -352,7 +353,8 @@ body {
 
 
 .navigationBar .navigationLinks:hover {
-    background-color: var(--highlight-color);
+    background-color: var(--primary-color);
+    color:var(--light-color);
     transform: scale(1.05);
 }
 .navigationBar .navigationLinks {
@@ -690,23 +692,25 @@ body {
 
 /* ----> Products Container Section <---- */
 .productsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-    padding: 0;
+display: grid;
+grid-template-columns: repeat(1fr,4);
+gap: 1rem;
+justify-items: center;
+align-items: center;
+    /* padding: 0; */
     /* background: var(--secondary-color); */
-    width: 90vw;
+    width: 95vw;
     gap: 3rem;
     row-gap: 5rem
 }
 
 .productsContainer .productContainer {
-    border-radius: 1rem;
-    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    /* border: 2px solid var(--primary-color); */
     overflow: hidden;
-    background: var(--light-color);
-    width: calc(30% - 1rem);
+    background: rgba(215, 215, 215, 0.81);
+    /* width: calc(30% - 1rem); */
+    width: 95%;
     margin: 0.5rem 0;
     /* box-shadow: 0 5px 8px rgba(8, 28, 1, 0.2); */
     box-shadow: 1px 1px 10px -5px var(--primary-color);
@@ -894,19 +898,21 @@ background: var(--primary-color);
     .mainSlidesContainer{
         height: 75vh;
     }
-    .productsContainer .productContainer {
-        width: calc(45% - 1rem); /* Adjust for smaller screens */
+    .productsContainer {
+grid-template-columns: repeat(1fr,2);
+
+        /* width: calc(45% - 1rem); */
+         /* Adjust for smaller screens */
     }
 }
 
 @media (max-width: 568px) {
     .productsContainer{
-    gap: 1.5rem;
-    align-items: center;
-    justify-content: center;
+
     }
     .productsContainer .productContainer {
-        width: calc(100% - 2rem); /* Full width on small screens */
+        /* width: calc(100% - 2rem); */
+         /* Full width on small screens */
     }
 }
 .about{
