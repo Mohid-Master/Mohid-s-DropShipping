@@ -1,95 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mohid's Dropshipping - Your go-to platform for exciting products.">
-  <title>Mohid's Dropshipping</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin" />
+  <title>Mohid's DropShipping Store</title>
+
+  <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="secondaryResources/Logo.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+<!--   <link rel="icon" href="./secondaryResources/Logo.png" type="image/x-icon" /> -->
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Explore Mohid's DropShipping for the best products at unbeatable prices. Start your online business today!" />
+  <meta name="keywords"
+    content="DropShipping, Online Business, E-commerce, Mohid's DropShipping, Pakistan DropShipping, E-Store" />
+  <meta name="author" content="Mohid" />
+
+  <!-- Open Graph Meta Tags for Social Media Sharing -->
+  <meta property="og:title" content="Mohid's DropShipping" />
+  <meta property="og:description"
+    content="Explore Mohid's DropShipping for the best products at unbeatable prices. Start your online business today!" />
+  <meta property="og:image" content="./secondaryResources/Logo.png" />
+  <meta property="og:url" content="https://mohids-dropshipping-store.netlify.app/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./primaryResources/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8XMEMC219Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  <!-- Header with Glass-like Navigation Bar -->
-  <header class="header">
-    <nav class="navbar">
-      <div class="navLeft">
-        <img src="logo.png" alt="Logo" class="siteLogo" id="themeSwitch">
-        <h1 class="siteTitle">Mohid's Dropshipping</h1>
-      </div>
-      <ul class="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#futureProducts">Future Products</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="navRight">
-        <div class="hamburger">
-          <i class="bi bi-list"></i> <!-- Bootstrap icon for hamburger menu -->
-        </div>
-        <!-- <div class="themeToggle">
-          <input type="checkbox" id="themeSwitch" class="themeSwitch">
-          <label for="themeSwitch" class="toggleLabel"></label>
-        </div> -->
-      </div>
-    </nav>
+  gtag('config', 'G-8XMEMC219Q');
+</script>
+  
+<body>
+  <header class="navigationBar">
+    <div class="navigationLogo">Mohid's DropShipping Store</div>
+    <div class="navigationMenu">
+      <a class="navigationLinks" href="#home">Home</a>
+      <a class="navigationLinks" href="#about">About</a>
+      <a class="navigationLinks" href="#contact">Contact Me</a>
+    </div>
   </header>
 
-  <!-- Hero Section with Grid Layout -->
-  <section id="home" class="hero">
-    <div class="miniCarousel">
-      <div class="cube-wrap">
-        <div class="cube" id="cube">
-          <div class="face front"><img src="product1.jpg" alt="Image 1"></div>
-          <div class="face back"><img src="product1.jpg" alt="Image 2"></div>
-          <div class="face left"><img src="product1.jpg" alt="Image 3"></div>
-          <div class="face right"><img src="product1.jpg" alt="Image 4"></div>
+  <!-- Slides Section -->
+  <div class="mainSlidesContainer" id="home">
+    <div class="slidesContainer">
+      <div class="slides">
+        <div class="slideContent">
+          <h1>Back Support Belt</h1>
+          <p>Get up to 10% Discount!</p>
+          <div class="imgWrapper">
+            <img src="https://i.ibb.co/7GsQSdm/posture-Corrector-Belt-Image1.png" alt="Back Support Belt Image 1" class="slideImage" style="--imgNo:1;">
+            <img src="https://i.ibb.co/X2MbYT0/Posture-corrector-belt.jpg" alt="Back Support Belt Image 2" class="slideImage" style="--imgNo:2;">
+            <img src="https://i.ibb.co/KDdFDxh/Posture-corrector-belt.jpg" alt="Back Support Belt Image 3" class="slideImage" style="--imgNo:3;">
+          </div>
+          <a class="buyNow" href="./secondaryResources/htmlPageTemplates/backSupportBelt.html?selectedProductTitle=Back Support Belt">
+            <button class="button">
+              <span class="label">Order Now</span>
+              <span class="gradient-container">
+                <span class="gradient"></span>
+              </span>
+            </button>
+          </a>
         </div>
       </div>
+      <!-- Repeat similar structure for other products -->
     </div>
+  </div>
 
-    <div class="div1 productBox" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
-      <h3>Product 1</h3>
-      <p>Short description of Product 1.</p>
-    </div>
-    
-    <div class="div2 productBox" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
-      <h3>Product 2</h3>
-      <p>Short description of Product 2.</p>
-    </div>
-    
-    <div class="div3 productBox" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
-      <h3>Product 3</h3>
-      <p>Short description of Product 3.</p>
-    </div>
-    
-    <div class="div4 productBox" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
-      <h3>Product 4</h3>
-      <p>Short description of Product 4.</p>
-    </div>
-    
-    <div class="detail">
-      <h2>Product Details</h2>
-      <div class="detailContent">
-        <div class="detailColumn">Detail Column 1</div>
+  <div class="productsContainer">
+    <a class="productContainer" href="./secondaryResources/htmlPageTemplates/backSupportBelt.html?selectedProductTitle=Back Support Belt">
+      <div class="priceTag">1500</div>
+      <img src="https://i.ibb.co/7GsQSdm/posture-Corrector-Belt-Image1.png" alt="Back Support Belt" class="productImage">
+      <span class="productTitle">Back Support Belt<div class="freeDelivery">Free Delivery</div></span>
+      <p class="productDescription">A very helpful product that can help you with everyday pain relief and maintaining a good posture.</p>
+      <div class="productBrandContainer">
+        <img src="https://i.ibb.co/qjwWk3B/Imperial-Orthotics-brand-Logo.jpg" alt="Imperial Orthotics" class="productBrandLogo">
+        <div class="productBrandName">Imperial Orthotics</div>
       </div>
-    </div>
-  </section>
+    </a>
+    <!-- Repeat similar structure for other products -->
+  </div>
 
-  <!-- Footer Section -->
-  <footer class="footer">
-    <p>© 2024s Mohid's Dropshipping. All rights reserved.</p>
-    <section class="socialMedia">
+  <div class="about" id="about">
+    <h1 class="sectionTitle">About Us</h1>
+    <p>
+      Welcome to Mohid's DropShipping! We are dedicated to providing you with the best products at unbeatable prices.
+      Our mission is to empower aspiring entrepreneurs and online business owners by offering a wide range of
+      high-quality products that cater to various needs.
+    </p>
+    <p>
+      At Mohid's DropShipping, we believe in the power of e-commerce to transform lives. Our team is passionate about
+      curating a selection of items that not only meet the highest standards of quality but also provide exceptional
+      value. Whether you're looking for health and wellness products, home essentials, or unique gadgets, we have
+      something for everyone.
+    </p>
+    <p>
+      We pride ourselves on our customer-centric approach, ensuring that your shopping experience is seamless and
+      enjoyable. Our dedicated support team is always here to assist you with any questions or concerns you may have.
+      Join us on this exciting journey and discover the endless possibilities of online business with Mohid's
+      DropShipping!
+    </p>
+  </div>
+
+  <div class="contactMe" id="contact">
+    <h1 class="sectionTitle">Contact Us</h1>
+    <p>
+      We would love to hear from you! Whether you have questions about our products, need assistance with your order, or
+      just want to share your feedback, feel free to reach out to us. Your satisfaction is our top priority, and we are
+      here to help you every step of the way.
+    </p>
+    <p>
+      You can contact us via email at <a href="mailto:info@mohidsdropshipping.com">info@mohidsdropshipping.com</a> or
+      fill out the contact form on our website. We strive to respond to all inquiries within 24 hours.
+    </p>
+    <div class="socialMedia">
       <h3>Follow Us</h3>
       <div class="socialIcons">
-        <a href="https://facebook.com" class="socialIcon"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://instagram.com" class="socialIcon"><i class="fab fa-instagram"></i></a>
-        <a href="https://twitter.com" class="socialIcon"><i class="fab fa-twitter"></i></a>
-        <a href="https://youtube.com" class="socialIcon"><i class="fab fa-youtube"></i></a>
- </div>
-    </section>
-  </footer>
+        <a href="https://github.com/Mohid-Master/" class="socialIcon"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/mohid-ahmad-97ab312b0" class="socialIcon"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/mohid_852/" class="socialIcon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@I-am-Mohid" class="socialIcon"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
 
-  <script src="script.js"></script>
+  <footer class="footer">
+    <p>&copy; 2025 By Mohid. All rights reserved.</p>
+  </footer>
+  <script src="./primaryResources/script.js"></script>
 </body>
+
 </html>
